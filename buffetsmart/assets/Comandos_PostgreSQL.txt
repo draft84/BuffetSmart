@@ -1,0 +1,78 @@
+/*******************************************************************************
+/*** Borrar Tablas *************************************************************
+/*******************************************************************************
+DROP TABLE public.auth_group CASCADE;
+DROP TABLE public.auth_group_permissions CASCADE;
+DROP TABLE public.auth_permission CASCADE;
+DROP TABLE public.auth_user CASCADE;
+DROP TABLE public.auth_user_groups CASCADE;
+DROP TABLE public.auth_user_user_permissions CASCADE;
+DROP TABLE public.dishes_allergens CASCADE;
+DROP TABLE public.dishes_allergenslang CASCADE;
+DROP TABLE public.dishes_dishes CASCADE;
+DROP TABLE public.dishes_disheslang CASCADE;
+DROP TABLE public.dishes_language CASCADE;
+DROP TABLE public.django_admin_log CASCADE;
+DROP TABLE public.django_content_type CASCADE;
+DROP TABLE public.django_migrations CASCADE;
+DROP TABLE public.dishes_recipe CASCADE;
+DROP TABLE public.dishes_recipe_allergens CASCADE;
+DROP TABLE public.dishes_assignment CASCADE;
+DROP TABLE public.dishes_exception CASCADE;
+DROP TABLE public.dishes_time CASCADE;
+DROP TABLE public.dishes_week CASCADE;
+DROP TABLE public.django_session CASCADE;
+DROP TABLE public.labels_label CASCADE;
+DROP TABLE public.labels_restaurant CASCADE;
+DROP TABLE public.dishes_organization CASCADE;
+DROP TABLE public.dishes_role CASCADE;
+DROP TABLE public.dishes_user CASCADE;
+DROP TABLE public.labels_template CASCADE;
+DROP TABLE public.dishes_daylimenu CASCADE;
+DROP TABLE public.dishes_logs CASCADE;
+DROP TABLE public.dishes_permission CASCADE;
+
+/*******************************************************************************
+/*** Limpiar Tablas ************************************************************
+/*******************************************************************************
+TRUNCATE TABLE public.auth_group RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.auth_group_permissions RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.auth_permission RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.auth_user RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.auth_user_groups RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.auth_user_user_permissions RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_allergens RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_allergenslang RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_dishes RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_disheslang RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_language RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.django_admin_log RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.django_content_type RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.django_migrations RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_recipe RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_recipe_allergens RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_assignment RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_exception RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_time RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_week RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.django_session RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.labels_label RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.labels_restaurant RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_organization RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_role RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_user RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_daylimenu RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_logs RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.dishes_permission RESTART IDENTITY CASCADE;
+
+/*******************************************************************************
+/*** Cargar datos PSQL *********************************************************
+/*******************************************************************************
+\copy dishes_dishes (id, dish, synchronized) FROM 'C:/Users/Alexander/Downloads/dishestenerife_csv.csv' DELIMITER ',' CSV HEADER ENCODING 'LATIN1';
+\copy dishes_assignments (id, day_of_week, label_id, dish_id, time_id, week_id) FROM 'C:/Users/Alexander/Downloads/Python/dishes_assignment_mar.csv' DELIMITER ',' CSV HEADER ENCODING 'LATIN1'
+
+/*******************************************************************************
+/*** Actualizacion de datos para pruebas de asignaciones ***********************
+/*******************************************************************************
+update public.dishes_assignment set day_of_week=7 where day_of_week=4
+update public.dishes_assignment set time_id=6 where time_id=5;
